@@ -137,7 +137,7 @@ namespace calculadora_desktop {
             this.sub.TabIndex = 15;
             this.sub.Text = "-";
             this.sub.UseVisualStyleBackColor = false;
-            this.sub.Click += new System.EventHandler(this.sub_Click);
+            this.sub.Click += new System.EventHandler(this.operator_Click);
             // 
             // three
             // 
@@ -389,7 +389,7 @@ namespace calculadora_desktop {
             this.div.TabIndex = 7;
             this.div.Text = "/";
             this.div.UseVisualStyleBackColor = false;
-            this.div.Click += new System.EventHandler(this.div_Click);
+            this.div.Click += new System.EventHandler(this.operator_Click);
             // 
             // add
             // 
@@ -407,7 +407,7 @@ namespace calculadora_desktop {
             this.add.TabIndex = 20;
             this.add.Text = "+";
             this.add.UseVisualStyleBackColor = false;
-            this.add.Click += new System.EventHandler(this.add_Click);
+            this.add.Click += new System.EventHandler(this.operator_Click);
             // 
             // mult
             // 
@@ -423,9 +423,9 @@ namespace calculadora_desktop {
             this.mult.Name = "mult";
             this.mult.Size = new System.Drawing.Size(75, 65);
             this.mult.TabIndex = 11;
-            this.mult.Text = "X";
+            this.mult.Text = "x";
             this.mult.UseVisualStyleBackColor = false;
-            this.mult.Click += new System.EventHandler(this.mult_Click);
+            this.mult.Click += new System.EventHandler(this.operator_Click);
             // 
             // percent
             // 

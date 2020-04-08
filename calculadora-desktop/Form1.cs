@@ -13,7 +13,8 @@ namespace calculadora_desktop {
         static string lastOp = "";
         double secondNum = 0;
         double result = 0;
-        double Result = 0;
+        int dotCount = 0;
+
 
         //0 - 9 buttons
         private void btnNum_Click(object btn, EventArgs e) {
@@ -21,12 +22,11 @@ namespace calculadora_desktop {
                 display.Clear();
                 clearAfterOp = false;
             }
+
             display.Text += (btn as Button).Text;
         }
 
-
         //DOT
-        int dotCount = 0;
         private void dot_Click(object btn, EventArgs e) {
             if (dotCount == 0) {
                 display.Text += ".";
@@ -48,7 +48,6 @@ namespace calculadora_desktop {
         private void clear_Click(object btn, EventArgs e) {
             display.Clear();
             dotCount = 0;
-            
             secondNum = 0;
             result = 0;
             operation = "";
@@ -64,68 +63,18 @@ namespace calculadora_desktop {
 
         }
 
-        private void div_Click(object btn, EventArgs e) {
 
+        private void operator_Click(object btn, EventArgs e) {
+            operatorsLogic((btn as Button).Text);
         }
 
-        private void mult_Click(object btn, EventArgs e) {
-
-        }
-
-        private void add_Click(object btn, EventArgs e) {
-            
-
-            if(clearAfterOp == false) {
-                
-                if (operation != "") {
-                    calc(operation);
-                }
-            
-                operation = "+";
-                lastOp = operation;
-
-                if (display.Text != "") {
-                    result = double.Parse(display.Text, CultureInfo.InvariantCulture);
-                    dotCount = 0;
-                    clearAfterOp = true;
-                }
-            }
-           
-
-
-
-        }
-
-        private void sub_Click(object sender, EventArgs e) {
-
-            if (clearAfterOp == false) {
-
-                if (operation != "") {
-                    calc(operation);
-                }
-
-                operation = "-";
-                lastOp = operation;
-
-                if (display.Text != "") {
-                    result = double.Parse(display.Text, CultureInfo.InvariantCulture);
-                    dotCount = 0;
-                    clearAfterOp = true;
-                }
-            }
-
-
-
-
-        }
-
+        
 
         private void equal_Click(object sender, EventArgs e) {
-            
+
             calc(operation);
-             
             operation = "";
-            
+
 
         }
 
@@ -134,9 +83,9 @@ namespace calculadora_desktop {
             if (display.Text != "") {
                 switch (op) {
                     case "+":
-                        
+
                         secondNum = double.Parse(display.Text, CultureInfo.InvariantCulture);
-                        
+
                         result += secondNum;
                         display.Text = result.ToString(CultureInfo.InvariantCulture);
 
@@ -150,13 +99,42 @@ namespace calculadora_desktop {
 
 
                         break;
-                    default:
-                        if(lastOp == "+") {
-                            result += secondNum;
-                            display.Text = result.ToString(CultureInfo.InvariantCulture); 
+                    case "x":
+
+                        secondNum = double.Parse(display.Text, CultureInfo.InvariantCulture);
+                        result *= secondNum;
+                        display.Text = result.ToString(CultureInfo.InvariantCulture);
+
+
+                        break;
+                    case "/":
+                        if (secondNum == 0) {
+                            MessageBox.Show("Cannot divide by zero","ERROR");
+                            display.Text = "error...";
                         }
-                        else if(lastOp == "-") {
+                        else {
+
+                            secondNum = double.Parse(display.Text, CultureInfo.InvariantCulture);
+                            result /= secondNum;
+                            display.Text = result.ToString(CultureInfo.InvariantCulture);
+                        }
+
+                        break;
+                    default:
+                        if (lastOp == "+") {
+                            result += secondNum;
+                            display.Text = result.ToString(CultureInfo.InvariantCulture);
+                        }
+                        else if (lastOp == "-") {
                             result -= secondNum;
+                            display.Text = result.ToString(CultureInfo.InvariantCulture);
+                        }
+                        else if (lastOp == "x") {
+                            result *= secondNum;
+                            display.Text = result.ToString(CultureInfo.InvariantCulture);
+                        }
+                        else if (lastOp == "/") {
+                            result /= secondNum;
                             display.Text = result.ToString(CultureInfo.InvariantCulture);
                         }
                         break;
@@ -167,6 +145,25 @@ namespace calculadora_desktop {
 
 
         }
+
+        private void operatorsLogic(string buttonText) {
+            if (clearAfterOp == false) {
+
+                if (operation != "") {
+                    calc(operation);
+                }
+
+                operation = buttonText;
+                lastOp = operation;
+
+                if (display.Text != "") {
+                    result = double.Parse(display.Text, CultureInfo.InvariantCulture);
+                    dotCount = 0;
+                    clearAfterOp = true;
+                }
+            }
+        }
+
 
     }
 }
