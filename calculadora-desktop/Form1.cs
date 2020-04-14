@@ -51,7 +51,7 @@ namespace calculadora_desktop {
             secondNum = 0;
             result = 0;
             operation = "";
-
+            lastOp = "";
         }
 
         //DISPLAY CLEAR
@@ -164,26 +164,32 @@ namespace calculadora_desktop {
             }
         }
 
-        /*
-         48 -> 57 Numero
-         44 e 46 -> ponto
-         42 * 43 + 45 - 47 /  
-         13 enter
-         8 backspace
-         27 esc
-        */
 
         private void keyboardController(object sender, KeyPressEventArgs e) {
-            
+            e.Handled = false;
+
+            //NUMERIC KEYS
             if (e.KeyChar >= 48 && e.KeyChar <= 57) {
                 if (clearAfterOp == true) {
                     display.Clear();
                     clearAfterOp = false;
                 }
                 display.Text += e.KeyChar.ToString();
+
+
             }
-            if(e.KeyChar == 42 || e.KeyChar == 43 || e.KeyChar == 45 || e.KeyChar == 47) {
-                if(e.KeyChar == 42) {
+
+            //DOT KEYS
+            else if (e.KeyChar == 44 || e.KeyChar == 46) {
+                if (dotCount == 0) {
+                    display.Text += ".";
+                    dotCount++;
+                }
+            }
+
+            //OPERATOR KEYS
+            else if (e.KeyChar == 42 || e.KeyChar == 43 || e.KeyChar == 45 || e.KeyChar == 47) {
+                if (e.KeyChar == 42) {
                     operatorsLogic("x");
                 }
                 else {
@@ -191,12 +197,40 @@ namespace calculadora_desktop {
                 }
             }
 
-
-            if(e.KeyChar == 13 ){
+            //ENTER KEY
+            else if (e.KeyChar == 13) {
                 calc(operation);
                 operation = "";
                 e.Handled = true;
             }
+
+            //BACKSPACE KEY
+            else if (e.KeyChar == Convert.ToInt32(Keys.Back)) {
+                if (display.Text != "") {
+                    display.Text = display.Text.Remove(display.Text.Length - 1);
+                }
+            }
+
+            //DELETE KEY FOR CLEAR ENTRY
+            else if (e.KeyChar == Convert.ToInt32(Keys.Delete)) {
+                display.Clear();
+            }
+
+
+            //ESC KEY FOR FULL CLEAR
+            else if (e.KeyChar == Convert.ToInt32(Keys.Escape)) {
+                display.Clear();
+                dotCount = 0;
+                secondNum = 0;
+                result = 0;
+                operation = "";
+                lastOp = "";
+            }
+
+            else {
+                e.Handled = true;
+            }
         }
+
     }
 }
