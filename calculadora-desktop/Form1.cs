@@ -68,7 +68,7 @@ namespace calculadora_desktop {
             operatorsLogic((btn as Button).Text);
         }
 
-        
+
 
         private void equal_Click(object sender, EventArgs e) {
 
@@ -109,7 +109,7 @@ namespace calculadora_desktop {
                         break;
                     case "/":
                         if (secondNum == 0) {
-                            MessageBox.Show("Cannot divide by zero","ERROR");
+                            MessageBox.Show("Cannot divide by zero", "ERROR");
                             display.Text = "error...";
                         }
                         else {
@@ -164,6 +164,39 @@ namespace calculadora_desktop {
             }
         }
 
+        /*
+         48 -> 57 Numero
+         44 e 46 -> ponto
+         42 * 43 + 45 - 47 /  
+         13 enter
+         8 backspace
+         27 esc
+        */
 
+        private void keyboardController(object sender, KeyPressEventArgs e) {
+            
+            if (e.KeyChar >= 48 && e.KeyChar <= 57) {
+                if (clearAfterOp == true) {
+                    display.Clear();
+                    clearAfterOp = false;
+                }
+                display.Text += e.KeyChar.ToString();
+            }
+            if(e.KeyChar == 42 || e.KeyChar == 43 || e.KeyChar == 45 || e.KeyChar == 47) {
+                if(e.KeyChar == 42) {
+                    operatorsLogic("x");
+                }
+                else {
+                    operatorsLogic(e.KeyChar.ToString());
+                }
+            }
+
+
+            if(e.KeyChar == 13 ){
+                calc(operation);
+                operation = "";
+                e.Handled = true;
+            }
+        }
     }
 }
