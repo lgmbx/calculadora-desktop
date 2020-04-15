@@ -137,7 +137,7 @@ namespace calculadora_desktop {
             this.sub.TabIndex = 15;
             this.sub.Text = "-";
             this.sub.UseVisualStyleBackColor = false;
-            this.sub.Click += new System.EventHandler(this.operator_Click);
+            this.sub.Click += new System.EventHandler(this.Operator_Click);
             // 
             // three
             // 
@@ -155,7 +155,7 @@ namespace calculadora_desktop {
             this.three.TabIndex = 14;
             this.three.Text = "3";
             this.three.UseVisualStyleBackColor = false;
-            this.three.Click += new System.EventHandler(this.btnNum_Click);
+            this.three.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // one
             // 
@@ -173,7 +173,7 @@ namespace calculadora_desktop {
             this.one.TabIndex = 12;
             this.one.Text = "1";
             this.one.UseVisualStyleBackColor = false;
-            this.one.Click += new System.EventHandler(this.btnNum_Click);
+            this.one.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // six
             // 
@@ -191,7 +191,7 @@ namespace calculadora_desktop {
             this.six.TabIndex = 10;
             this.six.Text = "6";
             this.six.UseVisualStyleBackColor = false;
-            this.six.Click += new System.EventHandler(this.btnNum_Click);
+            this.six.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // five
             // 
@@ -209,7 +209,7 @@ namespace calculadora_desktop {
             this.five.TabIndex = 9;
             this.five.Text = "5";
             this.five.UseVisualStyleBackColor = false;
-            this.five.Click += new System.EventHandler(this.btnNum_Click);
+            this.five.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // four
             // 
@@ -227,7 +227,7 @@ namespace calculadora_desktop {
             this.four.TabIndex = 8;
             this.four.Text = "4";
             this.four.UseVisualStyleBackColor = false;
-            this.four.Click += new System.EventHandler(this.btnNum_Click);
+            this.four.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // nine
             // 
@@ -245,7 +245,7 @@ namespace calculadora_desktop {
             this.nine.TabIndex = 6;
             this.nine.Text = "9";
             this.nine.UseVisualStyleBackColor = false;
-            this.nine.Click += new System.EventHandler(this.btnNum_Click);
+            this.nine.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // eight
             // 
@@ -263,7 +263,7 @@ namespace calculadora_desktop {
             this.eight.TabIndex = 5;
             this.eight.Text = "8";
             this.eight.UseVisualStyleBackColor = false;
-            this.eight.Click += new System.EventHandler(this.btnNum_Click);
+            this.eight.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // seven
             // 
@@ -281,7 +281,7 @@ namespace calculadora_desktop {
             this.seven.TabIndex = 4;
             this.seven.Text = "7";
             this.seven.UseVisualStyleBackColor = false;
-            this.seven.Click += new System.EventHandler(this.btnNum_Click);
+            this.seven.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // zero
             // 
@@ -299,7 +299,7 @@ namespace calculadora_desktop {
             this.zero.TabIndex = 17;
             this.zero.Text = "0";
             this.zero.UseVisualStyleBackColor = true;
-            this.zero.Click += new System.EventHandler(this.btnNum_Click);
+            this.zero.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // two
             // 
@@ -317,7 +317,7 @@ namespace calculadora_desktop {
             this.two.TabIndex = 13;
             this.two.Text = "2";
             this.two.UseVisualStyleBackColor = false;
-            this.two.Click += new System.EventHandler(this.btnNum_Click);
+            this.two.Click += new System.EventHandler(this.BtnNum_Click);
             // 
             // equal
             // 
@@ -335,7 +335,7 @@ namespace calculadora_desktop {
             this.equal.TabIndex = 19;
             this.equal.Text = "=";
             this.equal.UseVisualStyleBackColor = false;
-            this.equal.Click += new System.EventHandler(this.equal_Click);
+            this.equal.Click += new System.EventHandler(this.Equal_Click);
             // 
             // dot
             // 
@@ -353,7 +353,7 @@ namespace calculadora_desktop {
             this.dot.TabIndex = 18;
             this.dot.Text = ".";
             this.dot.UseVisualStyleBackColor = false;
-            this.dot.Click += new System.EventHandler(this.dot_Click);
+            this.dot.Click += new System.EventHandler(this.Dot_Click);
             // 
             // backSpace
             // 
@@ -371,7 +371,7 @@ namespace calculadora_desktop {
             this.backSpace.TabIndex = 3;
             this.backSpace.Text = "←";
             this.backSpace.UseVisualStyleBackColor = false;
-            this.backSpace.Click += new System.EventHandler(this.backSpace_Click);
+            this.backSpace.Click += new System.EventHandler(this.BackSpace_Click);
             // 
             // div
             // 
@@ -389,7 +389,7 @@ namespace calculadora_desktop {
             this.div.TabIndex = 7;
             this.div.Text = "/";
             this.div.UseVisualStyleBackColor = false;
-            this.div.Click += new System.EventHandler(this.operator_Click);
+            this.div.Click += new System.EventHandler(this.Operator_Click);
             // 
             // add
             // 
@@ -407,7 +407,7 @@ namespace calculadora_desktop {
             this.add.TabIndex = 20;
             this.add.Text = "+";
             this.add.UseVisualStyleBackColor = false;
-            this.add.Click += new System.EventHandler(this.operator_Click);
+            this.add.Click += new System.EventHandler(this.Operator_Click);
             // 
             // mult
             // 
@@ -425,7 +425,7 @@ namespace calculadora_desktop {
             this.mult.TabIndex = 11;
             this.mult.Text = "x";
             this.mult.UseVisualStyleBackColor = false;
-            this.mult.Click += new System.EventHandler(this.operator_Click);
+            this.mult.Click += new System.EventHandler(this.Operator_Click);
             // 
             // percent
             // 
@@ -443,9 +443,9 @@ namespace calculadora_desktop {
             this.percent.TabIndex = 0;
             this.percent.Text = "%";
             this.percent.UseVisualStyleBackColor = false;
-            this.percent.Click += new System.EventHandler(this.percent_Click);
+            this.percent.Click += new System.EventHandler(this.Percent_Click);
             // 
-            // clearEntry
+            // ClearEntry
             // 
             this.clearEntry.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.clearEntry.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -461,9 +461,9 @@ namespace calculadora_desktop {
             this.clearEntry.TabIndex = 1;
             this.clearEntry.Text = "CE";
             this.clearEntry.UseVisualStyleBackColor = false;
-            this.clearEntry.Click += new System.EventHandler(this.clearEntry_Click);
+            this.clearEntry.Click += new System.EventHandler(this.ClearEntry_Click);
             // 
-            // clear
+            // Clear
             // 
             this.clear.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.clear.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -479,7 +479,7 @@ namespace calculadora_desktop {
             this.clear.TabIndex = 2;
             this.clear.Text = "C";
             this.clear.UseVisualStyleBackColor = false;
-            this.clear.Click += new System.EventHandler(this.clear_Click);
+            this.clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // Form1
             // 
@@ -493,8 +493,8 @@ namespace calculadora_desktop {
             this.MaximumSize = new System.Drawing.Size(450, 600);
             this.MinimumSize = new System.Drawing.Size(300, 450);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.keyboardController);
+            this.Text = "Calculadora";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyboardController);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
